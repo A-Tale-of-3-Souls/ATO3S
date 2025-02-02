@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-var main_menu_scene = preload("res://scenes/main_menu.tscn")
 
 @onready var particles = $CPUParticles2D
 @onready var logo = $Sprite2D
@@ -9,11 +8,9 @@ var main_menu_scene = preload("res://scenes/main_menu.tscn")
 
 func _ready() -> void:
 	$AnimationPlayer.play("fade_in")
-	await get_tree().create_timer(5).timeout
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	await get_tree().create_timer(1.5).timeout
+	$AnimationPlayer.play("fade_out")
 	
-	# Inizializza la posizione del logo
-	#_center_logo(window_size)
 
 func _process(delta: float) -> void:
 	# Calcola le dimensioni della finestra
@@ -37,3 +34,8 @@ func _center_logo(window_size) -> void:
 	logo.position = Vector2(window_size.x / 2, window_size.y / 2)
 	logo.scale.x = window_size.x * 2 /640
 	logo.scale.y = window_size.x * 2 / 640
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fade_out":
+		$AnimationPlayer.play("Title_fade_in")
