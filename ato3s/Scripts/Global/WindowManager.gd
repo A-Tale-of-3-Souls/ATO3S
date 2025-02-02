@@ -16,3 +16,11 @@ func _center_and_scale_anchor_left(window_size, object, x = 0, y = 0):
 		object.position = Vector2((window_size.x - object.size.x * object.scale.x) / 2 + x*object.scale.x, (window_size.y - object.size.y * object.scale.y) / 2 + y*object.scale.y)
 	object.scale.x = window_size.x * 2 /640
 	object.scale.y = window_size.x * 2 / 640
+
+func _center_and_scale_font_bigger(window_size, object, x = 0, y = 0):#:')
+	if x == 0 and y == 0:
+		object.position = Vector2((window_size.x - object.size.x * object.scale.x) / 2, (window_size.y - object.size.y * object.scale.y) / 2)
+	else:
+		object.position = Vector2((window_size.x - object.size.x * object.scale.x) / 2 + x*object.scale.x, (window_size.y - object.size.y * object.scale.y) / 2 + y*object.scale.y)
+	object.scale.x = window_size.x /640
+	object.scale.y = window_size.x / 640
