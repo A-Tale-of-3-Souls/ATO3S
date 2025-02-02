@@ -3,7 +3,7 @@ extends CanvasLayer
 var main_menu_scene = preload("res://scenes/main_menu.tscn")
 
 @onready var particles = $CPUParticles2D
-@onready var logo = $TextureRect
+@onready var logo = $Sprite2D
 
 @export var gravity = 100
 
@@ -29,8 +29,11 @@ func _process(delta: float) -> void:
 	_center_logo(window_size)
 
 func _center_logo(window_size) -> void:
-	var logo_size = logo.texture.get_size()
-	var logo_scale = logo.scale.x
+	#var logo_size = logo.texture.get_size()
+	#var logo_scale = logo.scale.x
 	
 	# Imposta la posizione del logo in modo che sia centrato
-	logo.position = Vector2((window_size.x - logo_size.x * logo_scale) / 2, (window_size.y - logo_size.y*logo_scale) / 2)
+	#logo.position = Vector2((window_size.x - logo_size.x * logo_scale) / 2, (window_size.y - logo_size.y*logo_scale) / 2)
+	logo.position = Vector2(window_size.x / 2, window_size.y / 2)
+	logo.scale.x = window_size.x * 2 /640
+	logo.scale.y = window_size.x * 2 / 640

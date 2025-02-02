@@ -1,31 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn3vpr2ebc7lg"]
+[gd_scene load_steps=8 format=3 uid="uid://dn3vpr2ebc7lg"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
 [ext_resource type="Texture2D" uid="uid://sxf44rundtbk" path="res://resources/gui/ato3s.png" id="2_j8lvt"]
-[ext_resource type="Shader" path="res://shaders/bootscreen.gdshader" id="2_yqldx"]
 
-[sub_resource type="Animation" id="Animation_o4ori"]
+[sub_resource type="Curve" id="Curve_idbe3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ivdac"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
+
+[sub_resource type="Animation" id="Animation_h2fxy"]
 resource_name = "fade_in"
-length = 5.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 4.96667),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_dw5xf"]
+[sub_resource type="Animation" id="Animation_ptka2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,34 +41,15 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6j2b"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ut3"]
 _data = {
-"RESET": SubResource("Animation_dw5xf"),
-"fade_in": SubResource("Animation_o4ori")
+"RESET": SubResource("Animation_ptka2"),
+"fade_in": SubResource("Animation_h2fxy")
 }
-
-[sub_resource type="Curve" id="Curve_idbe3"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_ivdac"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_scoef"]
-shader = ExtResource("2_yqldx")
-shader_parameter/width = 0.968
-shader_parameter/outline_color = Color(1, 1, 1, 0)
 
 [node name="Bootscreen" type="CanvasLayer"]
 script = ExtResource("1_4v55a")
 gravity = 200
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../TextureRect")
-libraries = {
-"": SubResource("AnimationLibrary_e6j2b")
-}
-speed_scale = 0.286
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -89,21 +76,13 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_idbe3")
 color_ramp = SubResource("Gradient_ivdac")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_scoef")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h0ut3")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(319, 169)
+scale = Vector2(2, 2)
 texture = ExtResource("2_j8lvt")
