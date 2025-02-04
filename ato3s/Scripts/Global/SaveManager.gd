@@ -2,7 +2,7 @@ extends Node
 
 var save_data = SaveData.new()
 var save_name = "Save1.tres"
-var file_path = "res://Saves/"
+var file_path = "user://"
 
 
 func save_game():
