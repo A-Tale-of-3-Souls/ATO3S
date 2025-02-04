@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dfi88htkki0eo"]
+
+[ext_resource type="FontFile" uid="uid://c3wiufrg2lejy" path="res://resources/fonts/FiveByFive.ttf" id="1_ttgm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cucme"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rene7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds10p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_824ia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mohl8"]
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_ttgm6")
+Button/styles/disabled = SubResource("StyleBoxEmpty_cucme")
+Button/styles/focus = SubResource("StyleBoxEmpty_rene7")
+Button/styles/hover = SubResource("StyleBoxEmpty_ds10p")
+Button/styles/normal = SubResource("StyleBoxEmpty_824ia")
+Button/styles/pressed = SubResource("StyleBoxEmpty_mohl8")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0.337255, 0.337255, 0.337255, 0.505882)
+Label/constants/line_spacing = 3
+Label/constants/shadow_outline_size = 3
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_ttgm6")
