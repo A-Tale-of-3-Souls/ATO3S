@@ -14,9 +14,9 @@ class_name BootScreen
 @export var gravity = 100
 
 func _ready() -> void:
-	var window_size = DisplayServer.window_get_size_with_decorations()
-	particles.emission_rect_extents = window_size
-	input_prompt.hide()
+	#var window_size = DisplayServer.window_get_size_with_decorations()
+	#particles.emission_rect_extents = window_size
+	input_prompt.self_modulate =  "ffffff00"
 	buttons.hide()
 	#WindowManager.bootscreen = self
 	$AnimationPlayer.play("fade_in")
@@ -64,7 +64,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		$AnimationPlayer.play("Title_fade_in")
 	if anim_name == "Title_fade_in":
-		input_prompt.show()
+		input_prompt.self_modulate =  "ffffffda"
 		$AnimationPlayer2.play("Text_Blink")
 		game_ready = true
 		$AnimationPlayer.play("Title_Animation")

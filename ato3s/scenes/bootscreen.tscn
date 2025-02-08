@@ -375,14 +375,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:visible")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d6cg"]
@@ -440,6 +440,7 @@ initial_velocity_min = 20.0
 initial_velocity_max = 50.0
 linear_accel_min = -87.87
 linear_accel_max = 80.0
+scale_amount_min = 0.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_idbe3")
 color_ramp = SubResource("Gradient_ivdac")
@@ -459,7 +460,7 @@ alignment = 1
 
 [node name="TitleContainer" type="VBoxContainer" parent="TitleScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 3
+theme_override_constants/separation = 0
 
 [node name="Title1" type="Label" parent="TitleScreen/VBoxContainer/TitleContainer"]
 modulate = Color(1, 1, 1, 0)
