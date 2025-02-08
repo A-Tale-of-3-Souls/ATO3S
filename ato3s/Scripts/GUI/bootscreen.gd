@@ -4,18 +4,21 @@ class_name BootScreen
 
 @onready var particles = $CPUParticles2D
 @onready var logo = $logo
-@onready var Title1 = $Title1
-@onready var Title2 = $Title2
-@onready var input_prompt = $InputPrompt
+@onready var title_screen = $TitleScreen
+@onready var Title1 = $TitleScreen/VBoxContainer/TitleContainer/Title1
+@onready var Title2 = $TitleScreen/VBoxContainer/TitleContainer/Title2
+@onready var input_prompt = $TitleScreen/VBoxContainer/InputPrompt
 @onready var game_ready = false
 @onready var buttons = $CenterContainer
 
 @export var gravity = 100
 
 func _ready() -> void:
-	$InputPrompt.hide()
+	var window_size = DisplayServer.window_get_size_with_decorations()
+	particles.emission_rect_extents = window_size
+	input_prompt.hide()
 	buttons.hide()
-	WindowManager.bootscreen = self
+	#WindowManager.bootscreen = self
 	$AnimationPlayer.play("fade_in")
 	await get_tree().create_timer(1.5).timeout
 	$AnimationPlayer.play("fade_out")
@@ -30,19 +33,24 @@ func _process(delta: float) -> void:
 	var window_size = DisplayServer.window_get_size_with_decorations()
 	
 	# Imposta l'emissione dei particellari in base alle dimensioni della finestra
-	particles.emission_rect_extents = window_size
-	particles.scale_amount_min = window_size.x / 640
-	particles.scale_amount_max = particles.scale_amount_min * 4
-	particles.gravity.y = (gravity * window_size.x) / 640
+	#particles.emission_rect_extents = window_size
+	#particles.amount = 500 * (window_size.x/320)
+	#particles.scale_amount_min = window_size.x / 320
+	#particles.scale_amount_max = particles.scale_amount_min * 2
+	#particles.gravity.y = (gravity * window_size.x) / 320
 	
 	# Ricalcola la posizione del logo ogni frame per tenerlo centrato
 	#_center_logo(window_size)
-	WindowManager._center_and_scale_anchor_left(window_size, logo)
-	WindowManager._center_and_scale_anchor_left(window_size,Title1,0 , -27)
-	WindowManager._center_and_scale_anchor_left(window_size,Title2,0,0)
-	WindowManager._center_and_scale_font_bigger(window_size, input_prompt,0, 50)
-	WindowManager._center_and_scale_anchor_left(window_size, buttons)
-
+	#WindowManager._scale(window_size,title_screen)
+	#WindowManager._scale(window_size, logo)
+	#WindowManager._scale(window_size,Title1)
+	#WindowManager._scale(window_size,Title2)
+	#WindowManager._scale(window_size, input_prompt)
+	#WindowManager._scale(window_size, buttons)
+	
+	if buttons.visible == true and Input.is_action_just_pressed("back"):
+		$AnimationPlayer2.stop()
+		_ready()
 	animation_handler()
 
 
@@ -56,7 +64,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		$AnimationPlayer.play("Title_fade_in")
 	if anim_name == "Title_fade_in":
-		$InputPrompt.show()
+		input_prompt.show()
 		$AnimationPlayer2.play("Text_Blink")
 		game_ready = true
 		$AnimationPlayer.play("Title_Animation")

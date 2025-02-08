@@ -4,19 +4,70 @@
 [ext_resource type="Texture2D" uid="uid://sxf44rundtbk" path="res://resources/gui/ato3s.png" id="2_j8lvt"]
 [ext_resource type="FontFile" uid="uid://minwux32lp5k" path="res://resources/fonts/RDJ-HandPixl.otf" id="3_8d0u4"]
 
-[sub_resource type="Curve" id="Curve_idbe3"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Animation" id="Animation_5k8gp"]
+resource_name = "LoadGameAnimation"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="Gradient" id="Gradient_ivdac"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
+[sub_resource type="Animation" id="Animation_ne68h"]
+resource_name = "NewGameAnimation"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ptka2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Title1:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +79,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Title2:modulate")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -59,7 +110,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -71,7 +122,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_calau"]
@@ -81,7 +132,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Title1:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,7 +144,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Title2:modulate")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -109,7 +160,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Title1:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -121,7 +172,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Title2:modulate")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -129,6 +180,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3f8dc"]
+resource_name = "Title_fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/TitleContainer/Title2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_h2fxy"]
@@ -163,92 +242,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_3f8dc"]
-resource_name = "Title_fade_out"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Title2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ne68h"]
-resource_name = "NewGameAnimation"
-length = 1.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5k8gp"]
-resource_name = "LoadGameAnimation"
-length = 1.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ut3"]
 _data = {
 "LoadGameAnimation": SubResource("Animation_5k8gp"),
@@ -261,12 +254,47 @@ _data = {
 "fade_out": SubResource("Animation_r3qua")
 }
 
+[sub_resource type="Curve" id="Curve_idbe3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ivdac"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
+
+[sub_resource type="Animation" id="Animation_gfxn7"]
+resource_name = "Buttons_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_s8jci"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("InputPrompt:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -278,7 +306,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InputPrompt:visible")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -319,7 +347,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("InputPrompt:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -335,7 +363,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("InputPrompt:modulate")
+tracks/0/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -347,7 +375,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InputPrompt:visible")
+tracks/1/path = NodePath("TitleScreen/VBoxContainer/InputPrompt:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -355,34 +383,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_gfxn7"]
-resource_name = "Buttons_fade_in"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d6cg"]
@@ -403,23 +403,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 500
-randomness = 0.3
-lifetime_randomness = 0.26
-emission_shape = 3
-emission_rect_extents = Vector2(640, 360)
-direction = Vector2(1, 1)
-spread = 10.4
-gravity = Vector2(0, 100)
-initial_velocity_min = 70.56
-initial_velocity_max = 200.06
-linear_accel_min = -87.87
-linear_accel_max = 80.81
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_idbe3")
-color_ramp = SubResource("Gradient_ivdac")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -443,20 +426,46 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 texture = ExtResource("2_j8lvt")
 
-[node name="Title1" type="Label" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(160, 90)
+amount = 500
+randomness = 0.3
+lifetime_randomness = 0.21
+emission_shape = 3
+emission_rect_extents = Vector2(320, 180)
+direction = Vector2(1, 1)
+spread = 10.4
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+linear_accel_min = -87.87
+linear_accel_max = 80.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_idbe3")
+color_ramp = SubResource("Gradient_ivdac")
+
+[node name="TitleScreen" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(160, 90)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TitleContainer" type="VBoxContainer" parent="TitleScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Title1" type="Label" parent="TitleScreen/VBoxContainer/TitleContainer"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0.443137)
 texture_filter = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.311
-anchor_right = 0.5
-anchor_bottom = 0.311
-offset_left = -20.0
-offset_top = 0.0399933
-offset_right = 20.0
-offset_bottom = 23.04
-grow_horizontal = 2
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_8d0u4")
 theme_override_font_sizes/font_size = 25
@@ -464,22 +473,12 @@ text = "A   TAle   of
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Title2" type="Label" parent="."]
+[node name="Title2" type="Label" parent="TitleScreen/VBoxContainer/TitleContainer"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0.498039)
 texture_filter = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.311
-anchor_right = 0.5
-anchor_bottom = 0.311
-offset_left = -160.0
-offset_top = 29.04
-offset_right = 160.0
-offset_bottom = 80.04
-grow_horizontal = 2
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_8d0u4")
 theme_override_font_sizes/font_size = 35
@@ -489,21 +488,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="InputPrompt" type="Label" parent="."]
+[node name="InputPrompt" type="Label" parent="TitleScreen/VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = 41.0
-offset_right = 59.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "Press X to start"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
@@ -512,17 +504,12 @@ libraries = {
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -22.0
-offset_right = 54.0
-offset_bottom = 22.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(160, 90)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
