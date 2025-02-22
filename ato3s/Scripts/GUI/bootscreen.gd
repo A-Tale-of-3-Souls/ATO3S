@@ -14,13 +14,15 @@ class_name BootScreen
 @export var gravity = 100
 
 func _ready() -> void:
+	if not FileAccess.file_exists("user://Save1.tres"):
+		$CenterContainer/VBoxContainer/LoadGameButton.disabled = true
 	#var window_size = DisplayServer.window_get_size_with_decorations()
 	#particles.emission_rect_extents = window_size
 	input_prompt.self_modulate =  "ffffff00"
 	buttons.hide()
 	#WindowManager.bootscreen = self
 	$AnimationPlayer.play("fade_in")
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(2.0).timeout
 	$AnimationPlayer.play("fade_out")
 	
 	
@@ -58,7 +60,8 @@ func animation_handler():
 	if $CenterContainer/VBoxContainer/NewGameButton.has_focus():
 		$AnimationPlayer.play("NewGameAnimation")
 	elif $CenterContainer/VBoxContainer/LoadGameButton.has_focus():
-		$AnimationPlayer.play("LoadGameAnimation")
+		if FileAccess.file_exists("user://Save1.tres"):
+			$AnimationPlayer.play("LoadGameAnimation")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
@@ -73,11 +76,14 @@ func _on_animation_player_animation_finished(anim_name):
 		buttons.show()
 		$CenterContainer/VBoxContainer/NewGameButton.grab_focus()
 	
+	
 
 
 func _on_animation_player_2_animation_finished(anim_name):
 	if anim_name == "text_event":
 		$AnimationPlayer.play("Title_fade_out")
+	if anim_name == "Buttons__fade_out":
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		
 		
 
@@ -88,3 +94,8 @@ func _on_new_game_button_mouse_entered():
 
 func _on_load_game_button_mouse_entered():
 	$CenterContainer/VBoxContainer/LoadGameButton.grab_focus()
+
+
+func _on_new_game_button_pressed():
+	SaveManager.save_game()
+	$AnimationPlayer2.play("Buttons__fade_out")

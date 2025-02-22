@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn3vpr2ebc7lg"]
+[gd_scene load_steps=21 format=3 uid="uid://dn3vpr2ebc7lg"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
-[ext_resource type="Texture2D" uid="uid://sxf44rundtbk" path="res://resources/gui/ato3s.png" id="2_j8lvt"]
+[ext_resource type="Texture2D" uid="uid://dr1nl2iw5q5r1" path="res://resources/gui/logoPIXEL.png" id="2_8qeus"]
 [ext_resource type="FontFile" uid="uid://minwux32lp5k" path="res://resources/fonts/RDJ-HandPixl.otf" id="3_8d0u4"]
 
 [sub_resource type="Animation" id="Animation_5k8gp"]
@@ -124,6 +124,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("logo:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_calau"]
 resource_name = "Title_Animation"
@@ -225,6 +237,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("logo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_r3qua"]
 resource_name = "fade_out"
@@ -240,6 +264,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("logo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ut3"]
@@ -260,6 +296,46 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_ivdac"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
+
+[sub_resource type="Animation" id="Animation_nwhkt"]
+resource_name = "Buttons__fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gfxn7"]
 resource_name = "Buttons_fade_in"
@@ -339,6 +415,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qn26i"]
 resource_name = "Text_Blink"
@@ -387,6 +475,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d6cg"]
 _data = {
+"Buttons__fade_out": SubResource("Animation_nwhkt"),
 "Buttons_fade_in": SubResource("Animation_gfxn7"),
 "RESET": SubResource("Animation_s8jci"),
 "Text_Blink": SubResource("Animation_qn26i"),
@@ -417,14 +506,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.0
-offset_top = -39.0
-offset_right = -3.0
-offset_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_j8lvt")
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("2_8qeus")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(160, 90)
@@ -525,6 +615,7 @@ focus_neighbor_top = NodePath("../LoadGameButton")
 focus_neighbor_bottom = NodePath("../LoadGameButton")
 focus_next = NodePath("../LoadGameButton")
 focus_previous = NodePath("../LoadGameButton")
+mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 text = "New Game"
 
@@ -535,6 +626,7 @@ focus_neighbor_top = NodePath("../NewGameButton")
 focus_neighbor_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
 focus_previous = NodePath("../NewGameButton")
+mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 text = "Load Game
 "
@@ -542,4 +634,5 @@ text = "Load Game
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_mouse_entered"]
