@@ -233,7 +233,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(3.24901, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -245,7 +245,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-3.21233, 1.00031),
 "update": 0,
 "values": [6.28319, 0.0]
 }
@@ -273,7 +273,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(3.69, 1),
 "update": 0,
 "values": [0.0, -6.28319]
 }
@@ -500,6 +500,7 @@ libraries = {
 
 [node name="logo" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.776471)
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -512,7 +513,6 @@ offset_right = 25.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 pivot_offset = Vector2(25, 25)
 texture = ExtResource("2_8qeus")
 
