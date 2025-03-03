@@ -22,6 +22,7 @@ class_name BootScreen
 @onready var flash_rect = $Flash_effect  # ColorRect per il flash
 @onready var storm_sound = $Flash_effect/storm_sound  # AudioStreamPlayer per il suono del temporale
 @onready var crt_effect_container = $CRT_Effect/MeshInstance2D
+@onready var music = $BG_Music
 
 func _ready() -> void:
 	# set crt monitor effect size to the current window size
@@ -61,7 +62,7 @@ func _flash_and_storm():
 	await get_tree().create_timer(0.05).timeout
 	flash_rect.modulate = Color(1, 1, 1, 0.7)  # Colore bianco per il flash
 	await get_tree().create_timer(0.1).timeout  
-
+	
 	# Nascondi il rect  del flash dopo il timer
 	flash_rect.visible = false
 	#storm_sound.stop()  # Interrompe il suono della tempesta dopo il flash (non serve)
@@ -89,6 +90,7 @@ func animation_handler():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
+		music.play()
 		$AnimationPlayer.play("Title_fade_in")
 	if anim_name == "Title_fade_in":
 		input_prompt.self_modulate = "ffffffda"

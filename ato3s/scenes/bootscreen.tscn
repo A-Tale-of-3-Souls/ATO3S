@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dn3vpr2ebc7lg"]
+[gd_scene load_steps=26 format=3 uid="uid://dn3vpr2ebc7lg"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
 [ext_resource type="Texture2D" uid="uid://dr1nl2iw5q5r1" path="res://resources/gui/logoPIXEL.png" id="2_8qeus"]
 [ext_resource type="AudioStream" uid="uid://bs8kwmeyemtst" path="res://resources/audio/storm_start_sound.mp3" id="3_0umlh"]
 [ext_resource type="FontFile" uid="uid://minwux32lp5k" path="res://resources/fonts/RDJ-HandPixl.otf" id="3_8d0u4"]
 [ext_resource type="Shader" path="res://shaders/screen_effects/crt.gdshader" id="4_vbagc"]
+[ext_resource type="AudioStream" uid="uid://dc03kp3ht1vs" path="res://resources/audio/intro_song.mp3" id="6_rbsby"]
 
 [sub_resource type="Animation" id="Animation_5k8gp"]
 resource_name = "LoadGameAnimation"
@@ -656,6 +657,9 @@ text = "Load Game
 material = SubResource("ShaderMaterial_orpiq")
 position = Vector2(320, 180)
 mesh = SubResource("QuadMesh_r4eo5")
+
+[node name="BG_Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rbsby")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
