@@ -76,6 +76,7 @@ func _process(delta: float) -> void:
 		$AnimationPlayer2.play("text_event")
 	if buttons.visible == true and Input.is_action_just_pressed("back"):
 		$AnimationPlayer2.stop()
+		particles.visible = false
 		_ready()
 	animation_handler()
 
