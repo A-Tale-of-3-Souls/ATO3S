@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dn3vpr2ebc7lg"]
+[gd_scene load_steps=25 format=3 uid="uid://dn3vpr2ebc7lg"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
 [ext_resource type="Texture2D" uid="uid://dr1nl2iw5q5r1" path="res://resources/gui/logoPIXEL.png" id="2_8qeus"]
+[ext_resource type="AudioStream" uid="uid://bs8kwmeyemtst" path="res://resources/audio/storm_start_sound.mp3" id="3_0umlh"]
 [ext_resource type="FontFile" uid="uid://minwux32lp5k" path="res://resources/fonts/RDJ-HandPixl.otf" id="3_8d0u4"]
+[ext_resource type="Shader" path="res://shaders/screen_effects/crt.gdshader" id="4_vbagc"]
 
 [sub_resource type="Animation" id="Animation_5k8gp"]
 resource_name = "LoadGameAnimation"
@@ -11,7 +13,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/0/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/1/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +42,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -103,7 +105,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/3/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -115,7 +117,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/4/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -303,7 +305,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -315,7 +317,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -327,7 +329,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CPUParticles2D:modulate")
+tracks/2/path = NodePath("Snow_Particles:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -343,7 +345,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/0/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -355,7 +357,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/1/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -394,7 +396,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/NewGameButton:modulate")
+tracks/2/path = NodePath("Buttons_Container/VBoxContainer/NewGameButton:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -406,7 +408,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterContainer/VBoxContainer/LoadGameButton:modulate")
+tracks/3/path = NodePath("Buttons_Container/VBoxContainer/LoadGameButton:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -418,7 +420,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CPUParticles2D:modulate")
+tracks/4/path = NodePath("Snow_Particles:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -482,6 +484,14 @@ _data = {
 "text_event": SubResource("Animation_7h1os")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_orpiq"]
+resource_local_to_scene = true
+shader = ExtResource("4_vbagc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_r4eo5"]
+size = Vector2(320, 180)
+center_offset = Vector3(160, 90, 0)
+
 [node name="FirstBoot" type="CanvasLayer"]
 script = ExtResource("1_4v55a")
 
@@ -516,9 +526,18 @@ grow_vertical = 2
 pivot_offset = Vector2(25, 25)
 texture = ExtResource("2_8qeus")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Flash_effect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="storm_sound" type="AudioStreamPlayer2D" parent="Flash_effect"]
+stream = ExtResource("3_0umlh")
+
+[node name="Snow_Particles" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(160, 90)
-amount = 500
+amount = 1
 randomness = 0.3
 lifetime_randomness = 0.21
 emission_shape = 3
@@ -593,7 +612,7 @@ libraries = {
 "": SubResource("AnimationLibrary_7d6cg")
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Buttons_Container" type="CenterContainer" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,11 +623,11 @@ pivot_offset = Vector2(160, 90)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons_Container"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="Buttons_Container/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../LoadGameButton")
@@ -619,7 +638,7 @@ mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 text = "New Game"
 
-[node name="LoadGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="LoadGameButton" type="Button" parent="Buttons_Container/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../NewGameButton")
@@ -631,8 +650,15 @@ theme_type_variation = &"FlatButton"
 text = "Load Game
 "
 
+[node name="CRT_Effect" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CRT_Effect"]
+material = SubResource("ShaderMaterial_orpiq")
+position = Vector2(320, 180)
+mesh = SubResource("QuadMesh_r4eo5")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
-[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons_Container/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="pressed" from="Buttons_Container/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="mouse_entered" from="Buttons_Container/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_mouse_entered"]
