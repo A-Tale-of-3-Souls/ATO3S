@@ -73,7 +73,7 @@ func _flash_and_storm():
 
 func _process(delta: float) -> void:
 	#InputHandler
-	if Input.is_action_just_pressed("Interact") and game_ready:
+	if Input.is_anything_pressed() and game_ready:
 		$AnimationPlayer2.play("text_event")
 	if buttons.visible == true and Input.is_action_just_pressed("back"):
 		$AnimationPlayer2.stop()
