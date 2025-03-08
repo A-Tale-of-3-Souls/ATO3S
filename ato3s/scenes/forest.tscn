@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ne8txwgr6kii"]
+
+[ext_resource type="Script" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
+
+[sub_resource type="Curve2D" id="Curve2D_ddegj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1090, 93, 0, 0, 0, 0, 0, 92)
+}
+point_count = 2
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_ym2cq")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ddegj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1090, 93)
+rotation = -3.14068
+loop = false
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+editor_draw_limits = true
