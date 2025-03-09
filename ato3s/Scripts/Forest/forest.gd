@@ -10,3 +10,4 @@ func _ready():
 func _process(delta):
 	$Path2D/PathFollow2D.progress_ratio += 0.005
 	
+	

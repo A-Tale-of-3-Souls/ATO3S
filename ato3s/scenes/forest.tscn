@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ne8txwgr6kii"]
+[gd_scene load_steps=5 format=3 uid="uid://ne8txwgr6kii"]
 
 [ext_resource type="Script" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
+[ext_resource type="Script" path="res://scenes/taco.gd" id="2_t8po1"]
+[ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_yxh6i"]
 
 [sub_resource type="Curve2D" id="Curve2D_ddegj"]
 _data = {
@@ -21,3 +23,11 @@ loop = false
 
 [node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
 editor_draw_limits = true
+
+[node name="Taco" type="CharacterBody2D" parent="."]
+position = Vector2(0, 92)
+script = ExtResource("2_t8po1")
+
+[node name="SpriteStack" parent="Taco" instance=ExtResource("2_yxh6i")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taco"]
