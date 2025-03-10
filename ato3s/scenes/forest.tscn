@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ne8txwgr6kii"]
+[gd_scene load_steps=10 format=3 uid="uid://ne8txwgr6kii"]
 
 [ext_resource type="Script" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="2_1tuc1"]
 [ext_resource type="Script" path="res://scenes/taco.gd" id="2_t8po1"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_yxh6i"]
+[ext_resource type="Script" path="res://scenes/tree.gd" id="4_ddydn"]
+[ext_resource type="Texture2D" uid="uid://ye3c25x5vr7v" path="res://resources/sprites/forest/tree.png" id="4_rshdu"]
 
 [sub_resource type="Curve2D" id="Curve2D_ddegj"]
 _data = {
@@ -10,19 +13,15 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_ll83n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_b1e5q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
+
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_ym2cq")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_ddegj")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1090, 93)
-rotation = -3.14068
-loop = false
-
-[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
-editor_draw_limits = true
 
 [node name="Taco" type="CharacterBody2D" parent="."]
 position = Vector2(0, 92)
@@ -31,3 +30,47 @@ script = ExtResource("2_t8po1")
 [node name="SpriteStack" parent="Taco" instance=ExtResource("2_yxh6i")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taco"]
+
+[node name="Path2D" type="Path2D" parent="Taco"]
+position = Vector2(0, -92)
+curve = SubResource("Curve2D_ddegj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Taco/Path2D"]
+position = Vector2(1090, 93)
+rotation = -3.14068
+loop = false
+
+[node name="Camera2D" type="Camera2D" parent="Taco/Path2D/PathFollow2D"]
+position_smoothing_speed = 3.0
+editor_draw_limits = true
+script = ExtResource("2_1tuc1")
+
+[node name="Tree" type="CharacterBody2D" parent="."]
+position = Vector2(0, 92)
+script = ExtResource("4_ddydn")
+
+[node name="SpriteStack" parent="Tree" instance=ExtResource("2_yxh6i")]
+position = Vector2(37, -47)
+texture = ExtResource("4_rshdu")
+hframes = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
+
+[node name="Snow_Particles" type="CPUParticles2D" parent="."]
+position = Vector2(160, 90)
+amount = 1000
+randomness = 0.3
+lifetime_randomness = 0.21
+emission_shape = 3
+emission_rect_extents = Vector2(320, 180)
+direction = Vector2(1, 1)
+spread = 10.4
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+linear_accel_min = -87.87
+linear_accel_max = 80.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_ll83n")
+color_ramp = SubResource("Gradient_b1e5q")
