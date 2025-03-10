@@ -6,8 +6,9 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+# camera variables
 var cam_velocity = Vector2.ZERO
-var cam_accelerat = 3
+var cam_accelerat = 1
 var rotation_speed = 5 # Velocità di rotazione della telecamera
 
 # Called every frame
@@ -27,24 +28,33 @@ func _process(delta):
 							cam_accelerat * delta
 						)
 		
+		rotate_camera(rotation_input, delta)
+		
 	if Input.is_action_pressed("cam_left"):
 		rotation_input -= 1
 		cam_velocity = lerp(cam_velocity, 
 							rotation_movement * rotation_speed, 
 							cam_accelerat * delta
 						)
+		
+		rotate_camera(rotation_input, delta)
 	
 	
+	
+	
+			
+func rotate_camera(rotation_input, delta):
+	$Taco/steps_on_snow.emitting = false
 	# Cam rotation effect
 	# 1. Rotate the whole map
 	rotation += rotation_input * rotation_speed * delta
 	# 2. Rotate Taco Stack of sprites (all at the same time) could be done in a loop
-	get_child(0).get_child(0).rotation += (-rotation_input*rotation_speed*delta)
-	# 3. Rotate each taco sprite for 3d effect
-	for child in get_child(0).get_child(0).get_children():
-		child.rotation += (rotation_input*rotation_speed*delta)
-	# 4. Rotate Tree Stack of sprites (all at the same time)
-	get_child(1).get_child(0).rotation += (-rotation_input*rotation_speed*delta)
-	# 5. Rotate each tree sprite for 3d effect
-	for child in get_child(1).get_child(0).get_children():
-		child.rotation += (rotation_input*rotation_speed*delta)
+	for child in get_children():
+		if child.get_children():
+			child.get_child(0).rotation += (-rotation_input*rotation_speed*delta)
+			# 3. Rotate each taco sprite for 3d effect
+			for nephew in child.get_child(0).get_children():
+				nephew.rotation += (rotation_input*rotation_speed*delta)
+			# 4. Rotate Tree Stack of sprites (all at the same time)
+		else:
+			child.rotation += (-rotation_input*rotation_speed*delta)

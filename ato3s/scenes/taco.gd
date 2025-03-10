@@ -21,4 +21,5 @@ func update_velocity(input, delta):
 
 func rotate_stack(input):
 	if input != Vector2.ZERO: # if user is moving
+		$steps_on_snow.emitting = true
 		$SpriteStack._set_rotation(velocity.angle()) # rotate stack based on velocity angle
