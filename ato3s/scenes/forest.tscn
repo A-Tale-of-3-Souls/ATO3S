@@ -69,16 +69,6 @@ spread = 0.79
 gravity = Vector2(0, 0)
 initial_velocity_max = 0.1
 
-[node name="Tree" type="CharacterBody2D" parent="."]
-position = Vector2(0, 92)
-
-[node name="SpriteStack" parent="Tree" instance=ExtResource("2_yxh6i")]
-position = Vector2(37, -47)
-texture = ExtResource("4_rshdu")
-hframes = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
-
 [node name="Devil_Eye" type="CharacterBody2D" parent="."]
 position = Vector2(0, 184)
 script = ExtResource("4_ddydn")
@@ -90,6 +80,17 @@ texture = ExtResource("6_b5eoh")
 hframes = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Devil_Eye"]
+
+[node name="Tree" type="CharacterBody2D" parent="."]
+position = Vector2(0, 92)
+scale = Vector2(2, 2)
+
+[node name="SpriteStack" parent="Tree" instance=ExtResource("2_yxh6i")]
+position = Vector2(37, -47)
+texture = ExtResource("4_rshdu")
+hframes = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
 
 [node name="Snow_Particles" type="CPUParticles2D" parent="."]
 position = Vector2(160, 90)
