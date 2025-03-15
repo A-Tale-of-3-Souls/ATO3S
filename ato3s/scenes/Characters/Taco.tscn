@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_5prkd"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="3_8uiqb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wubpb"]
-size = Vector2(19, 9)
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_r7evm"]
+length = 17.5
 
 [sub_resource type="Curve2D" id="Curve2D_ddegj"]
 _data = {
@@ -34,7 +34,7 @@ script = ExtResource("1_lhshb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, -0.5)
-shape = SubResource("RectangleShape2D_wubpb")
+shape = SubResource("SeparationRayShape2D_r7evm")
 debug_color = Color(0, 0.6, 0.701961, 0.427451)
 
 [node name="Path2D" type="Path2D" parent="."]

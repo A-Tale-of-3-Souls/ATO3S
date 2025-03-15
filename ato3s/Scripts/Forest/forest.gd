@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -23,20 +21,18 @@ func _process(delta):
 	# Ruota la telecamera con i tasti freccia
 	if Input.is_action_pressed("cam_right"):
 		rotation_input += 1
-		cam_velocity = lerp(cam_velocity, 
-							rotation_movement * rotation_speed, 
-							cam_accelerat * delta
-						)
-		
+		#cam_velocity = lerp(cam_velocity, 
+							#rotation_movement * rotation_speed, 
+							#cam_accelerat * delta
+						#)
 		rotate_camera(rotation_input, delta)
 		
 	if Input.is_action_pressed("cam_left"):
 		rotation_input -= 1
-		cam_velocity = lerp(cam_velocity, 
-							rotation_movement * rotation_speed, 
-							cam_accelerat * delta
-						)
-		
+		#cam_velocity = lerp(cam_velocity, 
+							#rotation_movement * rotation_speed, 
+							#cam_accelerat * delta
+						#)
 		rotate_camera(rotation_input, delta)
 	
 	
@@ -48,6 +44,8 @@ func rotate_camera(rotation_input, delta):
 	# Cam rotation effect
 	# 1. Rotate the whole map
 	rotation += rotation_input * rotation_speed * delta
+	if GameManager.taco.moving:
+		GameManager.taco.collision.rotation += (-rotation_input*rotation_speed*delta)
 	# 2. Rotate Taco Stack of sprites (all at the same time) could be done in a loop
 	for child in get_children():
 		if child.get_children():
