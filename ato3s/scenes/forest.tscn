@@ -1,30 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ne8txwgr6kii"]
+[gd_scene load_steps=7 format=3 uid="uid://ne8txwgr6kii"]
 
 [ext_resource type="Script" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="2_1tuc1"]
-[ext_resource type="Script" path="res://scenes/taco.gd" id="2_t8po1"]
-[ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_yxh6i"]
-[ext_resource type="Script" path="res://scenes/tree.gd" id="4_ddydn"]
-[ext_resource type="Texture2D" uid="uid://ye3c25x5vr7v" path="res://resources/sprites/forest/tree.png" id="4_rshdu"]
-[ext_resource type="Texture2D" uid="uid://cex2mlyj6lk4b" path="res://resources/sprites/characters/devil-eye.png" id="6_b5eoh"]
-
-[sub_resource type="Curve2D" id="Curve2D_ddegj"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1090, 93, 0, 0, 0, 0, 0, 92)
-}
-point_count = 2
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8akwq"]
-
-[sub_resource type="Gradient" id="Gradient_knmh7"]
-offsets = PackedFloat32Array(0, 0.012987, 0.0649351, 0.201299)
-colors = PackedColorArray(0, 0, 0, 1, 0.779221, 0.779221, 0.779221, 1, 0.148667, 0.148667, 0.148667, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nsxm8"]
-gradient = SubResource("Gradient_knmh7")
-width = 1
-height = 1
-fill_from = Vector2(0.387218, 0.539474)
+[ext_resource type="PackedScene" uid="uid://ctouav4o770o5" path="res://scenes/Characters/Taco.tscn" id="2_k1pgn"]
+[ext_resource type="PackedScene" uid="uid://cgysniw2qw14x" path="res://scenes/Characters/Devil_eye.tscn" id="3_j83u4"]
+[ext_resource type="PackedScene" uid="uid://d3ilhy7rocbqh" path="res://scenes/WorldEntities/Tree.tscn" id="4_qore4"]
 
 [sub_resource type="Curve" id="Curve_ll83n"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -36,61 +15,11 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_ym2cq")
 
-[node name="Taco" type="CharacterBody2D" parent="."]
-position = Vector2(0, 92)
-script = ExtResource("2_t8po1")
+[node name="Devil_Eye" parent="." instance=ExtResource("3_j83u4")]
 
-[node name="SpriteStack" parent="Taco" instance=ExtResource("2_yxh6i")]
+[node name="Tree" parent="." instance=ExtResource("4_qore4")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taco"]
-
-[node name="Path2D" type="Path2D" parent="Taco"]
-position = Vector2(0, -92)
-curve = SubResource("Curve2D_ddegj")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Taco/Path2D"]
-position = Vector2(1090, 93)
-rotation = -3.14068
-loop = false
-
-[node name="Camera2D" type="Camera2D" parent="Taco/Path2D/PathFollow2D"]
-position_smoothing_speed = 10.0
-rotation_smoothing_speed = 2.0
-editor_draw_limits = true
-script = ExtResource("2_1tuc1")
-
-[node name="steps_on_snow" type="CPUParticles2D" parent="Taco"]
-material = SubResource("CanvasItemMaterial_8akwq")
-amount = 5
-lifetime = 0.7
-texture = SubResource("GradientTexture2D_nsxm8")
-direction = Vector2(0, 0)
-spread = 0.79
-gravity = Vector2(0, 0)
-initial_velocity_max = 0.1
-
-[node name="Devil_Eye" type="CharacterBody2D" parent="."]
-position = Vector2(0, 184)
-script = ExtResource("4_ddydn")
-
-[node name="SpriteStack" parent="Devil_Eye" instance=ExtResource("2_yxh6i")]
-position = Vector2(95, -105)
-scale = Vector2(2, 2)
-texture = ExtResource("6_b5eoh")
-hframes = 19
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Devil_Eye"]
-
-[node name="Tree" type="CharacterBody2D" parent="."]
-position = Vector2(0, 92)
-scale = Vector2(2, 2)
-
-[node name="SpriteStack" parent="Tree" instance=ExtResource("2_yxh6i")]
-position = Vector2(37, -47)
-texture = ExtResource("4_rshdu")
-hframes = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
+[node name="Taco" parent="." instance=ExtResource("2_k1pgn")]
 
 [node name="Snow_Particles" type="CPUParticles2D" parent="."]
 position = Vector2(160, 90)

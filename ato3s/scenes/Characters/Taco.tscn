@@ -1,19 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctouav4o770o5"]
+[gd_scene load_steps=9 format=3 uid="uid://ctouav4o770o5"]
 
-[ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="1_7qf8t"]
-[ext_resource type="Script" path="res://Scripts/Characters/taco.gd" id="1_ffdfh"]
-[ext_resource type="Texture2D" uid="uid://biwv3isveoyfy" path="res://resources/sprites/characters/taco_idle.png" id="3_u1p34"]
+[ext_resource type="Script" path="res://scenes/taco.gd" id="1_lhshb"]
+[ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_5prkd"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="3_8uiqb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5myy"]
-size = Vector2(8, 19)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wubpb"]
+size = Vector2(19, 9)
+
+[sub_resource type="Curve2D" id="Curve2D_ddegj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1090, 93, 0, 0, 0, 0, 0, 92)
+}
+point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8akwq"]
+
+[sub_resource type="Gradient" id="Gradient_knmh7"]
+offsets = PackedFloat32Array(0, 0.012987, 0.0649351, 0.201299)
+colors = PackedColorArray(0, 0, 0, 1, 0.779221, 0.779221, 0.779221, 1, 0.148667, 0.148667, 0.148667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nsxm8"]
+gradient = SubResource("Gradient_knmh7")
+width = 1
+height = 1
+fill_from = Vector2(0.387218, 0.539474)
 
 [node name="Taco" type="CharacterBody2D"]
-script = ExtResource("1_ffdfh")
+position = Vector2(0, 92)
+collision_mask = 2
+script = ExtResource("1_lhshb")
+
+[node name="SpriteStack" parent="." instance=ExtResource("2_5prkd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_r5myy")
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_wubpb")
+debug_color = Color(0, 0.6, 0.701961, 0.427451)
 
-[node name="SpriteStack" parent="." instance=ExtResource("1_7qf8t")]
-texture = ExtResource("3_u1p34")
-hframes = 10
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, -92)
+curve = SubResource("Curve2D_ddegj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1090, 93)
+rotation = -3.14068
+loop = false
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+position_smoothing_speed = 10.0
+rotation_smoothing_speed = 2.0
+editor_draw_limits = true
+script = ExtResource("3_8uiqb")
+
+[node name="steps_on_snow" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_8akwq")
+amount = 5
+lifetime = 0.7
+texture = SubResource("GradientTexture2D_nsxm8")
+direction = Vector2(0, 0)
+spread = 0.79
+gravity = Vector2(0, 0)
+initial_velocity_max = 0.1

@@ -51,8 +51,12 @@ func rotate_camera(rotation_input, delta):
 	# 2. Rotate Taco Stack of sprites (all at the same time) could be done in a loop
 	for child in get_children():
 		if child.get_children():
-			child.get_child(0).rotation += (-rotation_input*rotation_speed*delta)
+			var stack = child.get_child(0)
+			var area = child.get_child(2)
+			stack.rotation += (-rotation_input*rotation_speed*delta)
 			# 3. Rotate each taco sprite for 3d effect
+			if area is Area2D:
+				area.rotation += (-rotation_input*rotation_speed*delta)
 			for nephew in child.get_child(0).get_children():
 				nephew.rotation += (rotation_input*rotation_speed*delta)
 			# 4. Rotate Tree Stack of sprites (all at the same time)

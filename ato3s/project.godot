@@ -103,6 +103,11 @@ cam_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Character"
+2d_physics/layer_2="World"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
