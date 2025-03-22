@@ -11,6 +11,7 @@ var input = Vector2.ZERO
 
 func _ready():
 	GameManager.taco = self
+	pass
 
 func _physics_process(delta): # runs each frame
 	var input = get_user_input()
@@ -18,9 +19,9 @@ func _physics_process(delta): # runs each frame
 	move_and_slide()
 	rotate_stack(input)
 	if input != Vector2.ZERO: # if user is moving
-		moving = true
+		GameManager.player_moving = true
 	else:
-		moving = false
+		GameManager.player_moving = false
 
 func get_user_input():
 	input = Vector2.ZERO # initialize input on each frame
@@ -35,6 +36,8 @@ func rotate_stack(input):
 	if input != Vector2.ZERO: # if user is moving
 		$steps_on_snow.emitting = true
 		$SpriteStack._set_rotation(velocity.angle()) # rotate stack based on velocity angle
+		#$SpriteStack.rotation = velocity.angle()
+		#if GameManager.camera_rotating == false:
 		$CollisionShape2D.rotation = velocity.angle()
 		
 		#collision shape ruota quando muovi giocatore

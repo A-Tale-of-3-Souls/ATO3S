@@ -1,14 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3ilhy7rocbqh"]
 
-[ext_resource type="Script" path="res://Scripts/Forest/tree.gd" id="1_fs3up"]
+[ext_resource type="Script" uid="uid://crp6gaa7d71k4" path="res://Scripts/Forest/tree.gd" id="1_fs3up"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="1_ngiec"]
 [ext_resource type="Texture2D" uid="uid://ye3c25x5vr7v" path="res://resources/sprites/forest/tree.png" id="2_fvs0s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3hph3"]
-radius = 8.5
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_bvdid"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v8hwd"]
-radius = 35.0009
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hcypm"]
 
 [node name="Tree" type="CharacterBody2D"]
 position = Vector2(0, 92)
@@ -23,14 +21,15 @@ hframes = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(37, -47)
-shape = SubResource("CircleShape2D_3hph3")
+shape = SubResource("SeparationRayShape2D_bvdid")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(36.75, -47)
+disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.25, -27.25)
-shape = SubResource("CircleShape2D_v8hwd")
+shape = SubResource("SeparationRayShape2D_hcypm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

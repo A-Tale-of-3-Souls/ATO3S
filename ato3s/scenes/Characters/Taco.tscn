@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ctouav4o770o5"]
 
-[ext_resource type="Script" path="res://scenes/taco.gd" id="1_lhshb"]
+[ext_resource type="Script" uid="uid://cw55p3rkx5nlr" path="res://scenes/taco.gd" id="1_lhshb"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_5prkd"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="3_8uiqb"]
+[ext_resource type="Script" uid="uid://ov2jqxjcpo2m" path="res://scenes/camera_2d.gd" id="3_8uiqb"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_r7evm"]
 length = 17.5
@@ -33,7 +33,6 @@ script = ExtResource("1_lhshb")
 [node name="SpriteStack" parent="." instance=ExtResource("2_5prkd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, -0.5)
 shape = SubResource("SeparationRayShape2D_r7evm")
 debug_color = Color(0, 0.6, 0.701961, 0.427451)
 
@@ -55,8 +54,11 @@ script = ExtResource("3_8uiqb")
 [node name="steps_on_snow" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_8akwq")
 amount = 5
-lifetime = 0.7
 texture = SubResource("GradientTexture2D_nsxm8")
+lifetime = 0.7
+emission_shape = 4
+emission_points = PackedVector2Array(0, 4, 0, -4)
+emission_colors = PackedColorArray()
 direction = Vector2(0, 0)
 spread = 0.79
 gravity = Vector2(0, 0)

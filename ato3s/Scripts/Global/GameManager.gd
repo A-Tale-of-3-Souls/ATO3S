@@ -1,6 +1,8 @@
 extends Node
 
-var taco
+var camera_rotating = false
+var player_moving = false
+var taco = Taco
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

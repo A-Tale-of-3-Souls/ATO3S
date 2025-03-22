@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ne8txwgr6kii"]
 
-[ext_resource type="Script" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
+[ext_resource type="Script" uid="uid://dkn26vgnprm3g" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
 [ext_resource type="PackedScene" uid="uid://ctouav4o770o5" path="res://scenes/Characters/Taco.tscn" id="2_k1pgn"]
 [ext_resource type="PackedScene" uid="uid://cgysniw2qw14x" path="res://scenes/Characters/Devil_eye.tscn" id="3_j83u4"]
 [ext_resource type="PackedScene" uid="uid://d3ilhy7rocbqh" path="res://scenes/WorldEntities/Tree.tscn" id="4_qore4"]

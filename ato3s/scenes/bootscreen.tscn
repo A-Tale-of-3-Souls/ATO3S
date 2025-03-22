@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=3 uid="uid://dn3vpr2ebc7lg"]
 
-[ext_resource type="Script" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
+[ext_resource type="Script" uid="uid://cgbtviidmu18j" path="res://Scripts/GUI/bootscreen.gd" id="1_4v55a"]
 [ext_resource type="Texture2D" uid="uid://dr1nl2iw5q5r1" path="res://resources/gui/logoPIXEL.png" id="2_8qeus"]
 [ext_resource type="AudioStream" uid="uid://bs8kwmeyemtst" path="res://resources/audio/storm_start_sound.mp3" id="3_0umlh"]
 [ext_resource type="FontFile" uid="uid://minwux32lp5k" path="res://resources/fonts/RDJ-HandPixl.otf" id="3_8d0u4"]
-[ext_resource type="Shader" path="res://shaders/screen_effects/crt.gdshader" id="4_vbagc"]
+[ext_resource type="Shader" uid="uid://dnl6574jac5ml" path="res://shaders/screen_effects/crt.gdshader" id="4_vbagc"]
 [ext_resource type="AudioStream" uid="uid://dc03kp3ht1vs" path="res://resources/audio/intro_song.mp3" id="6_rbsby"]
 
 [sub_resource type="Animation" id="Animation_5k8gp"]
@@ -283,14 +283,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ut3"]
 _data = {
-"LoadGameAnimation": SubResource("Animation_5k8gp"),
-"NewGameAnimation": SubResource("Animation_ne68h"),
-"RESET": SubResource("Animation_ptka2"),
-"Title_Animation": SubResource("Animation_calau"),
-"Title_fade_in": SubResource("Animation_0ggw6"),
-"Title_fade_out": SubResource("Animation_3f8dc"),
-"fade_in": SubResource("Animation_h2fxy"),
-"fade_out": SubResource("Animation_r3qua")
+&"LoadGameAnimation": SubResource("Animation_5k8gp"),
+&"NewGameAnimation": SubResource("Animation_ne68h"),
+&"RESET": SubResource("Animation_ptka2"),
+&"Title_Animation": SubResource("Animation_calau"),
+&"Title_fade_in": SubResource("Animation_0ggw6"),
+&"Title_fade_out": SubResource("Animation_3f8dc"),
+&"fade_in": SubResource("Animation_h2fxy"),
+&"fade_out": SubResource("Animation_r3qua")
 }
 
 [sub_resource type="Curve" id="Curve_idbe3"]
@@ -478,11 +478,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d6cg"]
 _data = {
-"Buttons__fade_out": SubResource("Animation_nwhkt"),
-"Buttons_fade_in": SubResource("Animation_gfxn7"),
-"RESET": SubResource("Animation_s8jci"),
-"Text_Blink": SubResource("Animation_qn26i"),
-"text_event": SubResource("Animation_7h1os")
+&"Buttons__fade_out": SubResource("Animation_nwhkt"),
+&"Buttons_fade_in": SubResource("Animation_gfxn7"),
+&"RESET": SubResource("Animation_s8jci"),
+&"Text_Blink": SubResource("Animation_qn26i"),
+&"text_event": SubResource("Animation_7h1os")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orpiq"]
@@ -506,7 +506,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h0ut3")
+&"": SubResource("AnimationLibrary_h0ut3")
 }
 
 [node name="logo" type="TextureRect" parent="."]
@@ -610,7 +610,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7d6cg")
+&"": SubResource("AnimationLibrary_7d6cg")
 }
 
 [node name="Buttons_Container" type="CenterContainer" parent="."]

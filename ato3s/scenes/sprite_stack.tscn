@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bydmrgsympr0x"]
 
 [ext_resource type="Texture2D" uid="uid://biwv3isveoyfy" path="res://resources/sprites/characters/taco_idle.png" id="1_crcps"]
-[ext_resource type="Script" path="res://Scripts/Global/sprite_stack.gd" id="2_1552i"]
+[ext_resource type="Script" uid="uid://g1igscocjhhs" path="res://Scripts/Global/sprite_stack.gd" id="2_1552i"]
 
 [node name="SpriteStack" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
