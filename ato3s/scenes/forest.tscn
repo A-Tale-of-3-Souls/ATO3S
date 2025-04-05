@@ -16,7 +16,26 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.737255)
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_ym2cq")
 
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Taco" parent="Player" instance=ExtResource("2_k1pgn")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1090, 1)
+rotation = -3.14068
+position_smoothing_speed = 10.0
+rotation_smoothing_speed = 2.0
+editor_draw_limits = true
+script = ExtResource("5_xr56k")
+
+[node name="MapEntities" type="Node2D" parent="."]
+
+[node name="Devil_Eye" parent="MapEntities" instance=ExtResource("3_j83u4")]
+
+[node name="Tree" parent="MapEntities" instance=ExtResource("4_qore4")]
+
 [node name="Snow_Particles" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(160, 90)
 amount = 1000
 randomness = 0.3
@@ -34,19 +53,3 @@ scale_amount_min = 0.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_ll83n")
 color_ramp = SubResource("Gradient_b1e5q")
-
-[node name="MapEntities" type="Node2D" parent="."]
-
-[node name="Devil_Eye" parent="MapEntities" instance=ExtResource("3_j83u4")]
-
-[node name="Tree" parent="MapEntities" instance=ExtResource("4_qore4")]
-
-[node name="Taco" parent="MapEntities" instance=ExtResource("2_k1pgn")]
-
-[node name="Camera2D" type="Camera2D" parent="MapEntities"]
-position = Vector2(1090, 1)
-rotation = -3.14068
-position_smoothing_speed = 10.0
-rotation_smoothing_speed = 2.0
-editor_draw_limits = true
-script = ExtResource("5_xr56k")

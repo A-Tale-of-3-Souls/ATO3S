@@ -6,7 +6,9 @@ var SPEED = 139
 var ACCELERAT = 20
 var input = Vector2.ZERO
 
+@onready var sprite_stack = $SpriteStack
 @onready var collision = $CollisionShape2D
+@onready var steps_on_snow = $steps_on_snow
 
 func _ready():
 	GameManager.taco = self
@@ -26,18 +28,22 @@ func get_user_input():
 	input = Vector2.ZERO # initialize input on each frame
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	
 	return input
 
 func update_velocity(input, delta):
 	velocity = lerp(velocity, input * SPEED, ACCELERAT * delta)
+	#GameManager.player_input = velocity
 
 func rotate_stack(input):
 	if input != Vector2.ZERO: # if user is moving
-		$steps_on_snow.emitting = true
-		$SpriteStack._set_rotation(velocity.angle()) # rotate stack based on velocity angle
+		steps_on_snow.emitting = true
+		sprite_stack._set_rotation(velocity.angle()) # rotate stack based on velocity angle
 		#$SpriteStack.rotation = velocity.angle()
-		#if GameManager.camera_rotating == false:
-		$CollisionShape2D.rotation = velocity.angle()
-		
+		#if GameManager.camera_rotating == false: 
+
+		collision.position = sprite_stack.get_child(0).position
+		collision.global_rotation = sprite_stack.get_child(0).global_rotation
+		#$"../../Fix_Collision_shape".rotation = 
 		#collision shape ruota quando muovi giocatore
 		

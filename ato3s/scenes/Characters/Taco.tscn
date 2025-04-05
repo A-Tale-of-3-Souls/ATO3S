@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cw55p3rkx5nlr" path="res://scenes/taco.gd" id="1_lhshb"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_5prkd"]
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_r7evm"]
-length = 17.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6r35"]
+size = Vector2(21, 7)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8akwq"]
 
@@ -20,13 +20,15 @@ fill_from = Vector2(0.387218, 0.539474)
 
 [node name="Taco" type="CharacterBody2D"]
 position = Vector2(0, 92)
+rotation = -6.28319
 collision_mask = 2
 script = ExtResource("1_lhshb")
 
 [node name="SpriteStack" parent="." instance=ExtResource("2_5prkd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SeparationRayShape2D_r7evm")
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_c6r35")
 debug_color = Color(0, 0.6, 0.701961, 0.427451)
 
 [node name="steps_on_snow" type="CPUParticles2D" parent="."]
@@ -41,3 +43,5 @@ direction = Vector2(0, 0)
 spread = 0.79
 gravity = Vector2(0, 0)
 initial_velocity_max = 0.1
+
+[node name="Node2D" type="Node2D" parent="."]

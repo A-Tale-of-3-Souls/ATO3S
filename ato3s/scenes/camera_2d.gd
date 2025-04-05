@@ -3,10 +3,15 @@ extends Camera2D
 var cam_velocity = Vector2.ZERO
 var cam_accelerat = 1
 var rotation_speed = 5 # Velocità di rotazione della telecamera
+@onready var player = get_parent()
+@onready var map_entities = $"../../MapEntities"
+#@onready var fix_collision = $"../../Fix_Collision_shape"
+
 
 # Called every frame
 func _process(delta):
 	position = GameManager.taco.position
+	
 	var rotation_input = 0.0
 	
 	var rotation_movement = Vector2.ZERO
@@ -42,23 +47,58 @@ func rotate_camera(rotation_input, delta):
 	#$Taco/steps_on_snow.emitting = false
 	# Cam rotation effect
 	# 1. Rotate the whole map
-	var map_entities = get_parent()
+	
 	var rotation_value = (rotation_input*rotation_speed*delta)
 	var fix_rotation = -rotation_value
+	
+	rotate_world(rotation_value, fix_rotation)
+	rotate_player(rotation_value,fix_rotation)
+	
+
+
+
+
+func rotate_sprite_stacks(stack, rotation_val):
+	for sprite in stack.get_children():#for every sprite in stack
+		sprite.rotation += rotation_val#rotate it with map entities
+		
+
+
+func rotate_player(rotation_value, fix_rotation):
+	player.rotation += rotation_value
+	#player.get_child(0)
+	
+	var taco_object = player.get_child(0)
+	var taco_stack = taco_object.get_child(0)#get spritestack of map object
+	taco_stack.rotation += fix_rotation # fix rotate stack of sprites opposite of map entities
+	
+	#rotate_sprite_stacks(taco_stack, rotation_value)
+	
+	var collision_shape = taco_object.get_child(1)
+	#collision_shape.rotation+=fix_rotation
+	
+	#if GameManager.player_moving:
+		##if GameManager.player_input != Vector2.ZERO:
+		#collision_shape.rotation+=fix_rotation
+		##collision_shape.rotation = taco_stack.rotation
+	#else:
+		#collision_shape.rotation = taco_stack.get_child(0).rotation
+
+
+func rotate_world(rotation_value, fix_rotation):
 	map_entities.rotation += rotation_value
 	#GameManager.taco.rotation += fix_rotation
-	GameManager.taco.collision.rotation = GameManager.taco.velocity.angle()
+	#GameManager.taco.collision.rotation = GameManager.taco.velocity.angle()
 	for child in map_entities.get_children(): # for every child of map_entities
 		if child.get_children():#if map object
 			var stack = child.get_child(0)#get spritestack of map object
 			stack.rotation += fix_rotation # rotate stack of sprites opposite of map entities
-			var collision_shape = child.get_child(1)#get collisionshape of entity
-			if GameManager.player_moving and child is Taco:
-				pass
-			else:
-				collision_shape.rotation += fix_rotation
-			for sprite in stack.get_children():#for every sprite in stack
-				sprite.rotation += rotation_value#rotate it with map entities
+			rotate_sprite_stacks(stack, rotation_value)
+			#var collision_shape = child.get_child(1)#get collisionshape of entity
+			#if GameManager.player_moving and child is Taco:
+				#pass
+			#else:
+				#collision_shape.rotation += fix_rotation
 		#if child.get_children(): # if it has children
 			#var stack = child.get_child(0)
 			#var area = child.get_child(2)
@@ -76,3 +116,4 @@ func rotate_camera(rotation_input, delta):
 			## 4. Rotate Tree Stack of sprites (all at the same time)
 		#else: # particles or eother stuff we don't wanna move
 			#child.rotation += (-rotation_input*rotation_speed*delta)
+			

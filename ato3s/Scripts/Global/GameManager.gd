@@ -2,6 +2,7 @@ extends Node
 
 var camera_rotating = false
 var player_moving = false
+var player_input = Vector2.ZERO
 var taco = Taco
 
 # Called when the node enters the scene tree for the first time.
