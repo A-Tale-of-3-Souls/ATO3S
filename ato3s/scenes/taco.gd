@@ -42,8 +42,8 @@ func rotate_stack(input):
 		#$SpriteStack.rotation = velocity.angle()
 		#if GameManager.camera_rotating == false: 
 
-		collision.position = sprite_stack.get_child(0).position
-		collision.global_rotation = sprite_stack.get_child(0).global_rotation
+		#collision.position = sprite_stack.get_child(0).position
+		#collision.global_rotation = sprite_stack.get_child(0).global_rotation
 		#$"../../Fix_Collision_shape".rotation = 
 		#collision shape ruota quando muovi giocatore
 		

@@ -75,7 +75,7 @@ func rotate_player(rotation_value, fix_rotation):
 	#rotate_sprite_stacks(taco_stack, rotation_value)
 	
 	var collision_shape = taco_object.get_child(1)
-	#collision_shape.rotation+=fix_rotation
+	collision_shape.rotation+=fix_rotation
 	
 	#if GameManager.player_moving:
 		##if GameManager.player_input != Vector2.ZERO:

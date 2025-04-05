@@ -2,6 +2,8 @@
 
 extends Sprite2D
 
+@onready var collision = $"../CollisionShape2D"
+
 @export var show_sprites = false: set = set_show_sprites, get = get_show_sprites
 @export var rotate_sprites = false: set = set_rotate_sprites, get = get_rotate_sprites
 
@@ -20,6 +22,8 @@ func clear_sprites():
 		sprite.queue_free()
 
 func set_rotate_sprites(_rotate_sprites):
+	collision.position = get_child(0).position
+	collision.global_rotation = get_child(0).global_rotation
 	rotate_sprites = _rotate_sprites
 
 
@@ -27,6 +31,8 @@ func get_rotate_sprites():
 	return rotate_sprites
 
 func _set_rotation(_rotation):
+	collision.position = get_child(0).position
+	collision.global_rotation = get_child(0).global_rotation
 	for sprite in get_children():
 		sprite.rotation = _rotation
 	
