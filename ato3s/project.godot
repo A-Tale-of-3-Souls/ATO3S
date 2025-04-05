@@ -109,6 +109,11 @@ cam_down={
 2d_physics/layer_1="Character"
 2d_physics/layer_2="World"
 
+[physics]
+
+2d/solver/contact_max_allowed_penetration=0.01
+common/physics_interpolation=true
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

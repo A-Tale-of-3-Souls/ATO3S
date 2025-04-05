@@ -12,6 +12,9 @@ var input = Vector2.ZERO
 
 func _ready():
 	GameManager.taco = self
+	set_motion_mode(1)
+	set_max_slides(0)
+	set_safe_margin(0)
 	pass
 
 func _physics_process(delta): # runs each frame
@@ -28,7 +31,7 @@ func get_user_input():
 	input = Vector2.ZERO # initialize input on each frame
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	
+	input = input.normalized()
 	return input
 
 func update_velocity(input, delta):
