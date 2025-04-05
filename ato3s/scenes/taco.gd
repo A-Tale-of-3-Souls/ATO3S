@@ -4,7 +4,6 @@ class_name Taco
 #var velocity = Vector2.ZERO #GODOT ERROR SAYS: Member "velocity" redefined (original in nativa class CharacterBody2D)
 var SPEED = 139
 var ACCELERAT = 20
-var moving = false
 var input = Vector2.ZERO
 
 @onready var collision = $CollisionShape2D

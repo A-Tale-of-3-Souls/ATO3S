@@ -1,17 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctouav4o770o5"]
+[gd_scene load_steps=7 format=3 uid="uid://ctouav4o770o5"]
 
 [ext_resource type="Script" uid="uid://cw55p3rkx5nlr" path="res://scenes/taco.gd" id="1_lhshb"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="2_5prkd"]
-[ext_resource type="Script" uid="uid://ov2jqxjcpo2m" path="res://scenes/camera_2d.gd" id="3_8uiqb"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_r7evm"]
 length = 17.5
-
-[sub_resource type="Curve2D" id="Curve2D_ddegj"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1090, 93, 0, 0, 0, 0, 0, 92)
-}
-point_count = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8akwq"]
 
@@ -35,21 +28,6 @@ script = ExtResource("1_lhshb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SeparationRayShape2D_r7evm")
 debug_color = Color(0, 0.6, 0.701961, 0.427451)
-
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(0, -92)
-curve = SubResource("Curve2D_ddegj")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1090, 93)
-rotation = -3.14068
-loop = false
-
-[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
-position_smoothing_speed = 10.0
-rotation_smoothing_speed = 2.0
-editor_draw_limits = true
-script = ExtResource("3_8uiqb")
 
 [node name="steps_on_snow" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_8akwq")
