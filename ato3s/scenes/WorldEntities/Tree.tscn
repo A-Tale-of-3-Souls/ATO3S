@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3ilhy7rocbqh"]
+[gd_scene load_steps=5 format=3 uid="uid://d3ilhy7rocbqh"]
 
 [ext_resource type="Script" uid="uid://crp6gaa7d71k4" path="res://Scripts/Forest/tree.gd" id="1_fs3up"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="1_ngiec"]
 [ext_resource type="Texture2D" uid="uid://ye3c25x5vr7v" path="res://resources/sprites/forest/tree.png" id="2_fvs0s"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_bvdid"]
-points = PackedVector2Array(9.98598, 1.00279, 10.0145, -0.94627, 9.00917, -1.00545, 9.00388, -1.97126, 7.99774, -2.00948, 7.97308, -3.01801, 7.00647, -2.99176, 6.99827, -4.98626, 6.01151, -4.98176, 5.98605, -5.96933, 5.00007, -5.98579, 4.97541, -6.99432, 1.97238, -6.96146, 2.00601, -7.97192, 1.01792, -7.9921, 1.00722, -8.97199, -1.0014, -8.97902, -1.01601, -7.98668, -1.98617, -7.97735, -2.00077, -6.98501, -3.98546, -7.01423, -3.99875, -5.99862, -6.01044, -5.9828, -6.01202, -4.95282, -6.97624, -4.98945, -7.03759, -3.00672, -7.97657, -2.97028, -7.96977, -1.99619, -9.03502, -2.03666, -8.98722, -1.00306, -10.0121, -1.01045, -9.99325, 1.01249, -8.98826, 0.985835, -8.98812, 2.00039, -8.00674, 2.01032, -7.97846, 2.99821, -6.99716, 3.01164, -6.99847, 3.98997, -5.99311, 4.01146, -6.00218, 4.99963, -6.99299, 5.00476, -7.0045, 5.98672, -4.99618, 6.00089, -5.00212, 6.98313, -2.00297, 6.99701, -1.98826, 8.0068, -1.00166, 8.00847, -0.99742, 9.00199, 0.976742, 9.00519, 0.995659, 8.70956, 1.9172, 8.70143, 1.98468, 7.68899, 2.96904, 7.7031, 2.973, 7.40243, 3.92577, 7.41786, 3.92703, 6.9967, 3.99889, 7.00561, 4.00888, 6.71428, 4.95183, 6.71204, 4.97818, 6.4051, 5.90064, 6.42387, 5.93117, 5.73699, 6.81925, 5.73496, 6.82878, 5.54208, 6.96665, 3.98417, 6.98827, 1.83587, 7.99543, 1.81366, 8.00286, 1.99651, 8.98815, 1.9952, 8.98485, 1.00128)
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hcypm"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvdid"]
 
 [node name="Tree" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -20,14 +17,4 @@ hframes = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.39398
-shape = SubResource("ConvexPolygonShape2D_bvdid")
-
-[node name="Area2D" type="Area2D" parent="."]
-disable_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.25, -27.25)
-shape = SubResource("SeparationRayShape2D_hcypm")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+shape = SubResource("CircleShape2D_bvdid")

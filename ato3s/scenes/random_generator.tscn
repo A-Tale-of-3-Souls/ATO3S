@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bf0qi640sr5rx"]
+[gd_scene load_steps=21 format=4 uid="uid://bf0qi640sr5rx"]
 
 [ext_resource type="Script" uid="uid://c0jewsjmwhk8c" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="1_8yuqj"]
 [ext_resource type="Script" uid="uid://cabisx8tvvcnp" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="2_47u0l"]
@@ -8,15 +8,17 @@
 [ext_resource type="Script" uid="uid://cm8ijg6dx6sgv" path="res://addons/gaea/modifiers/2D/fill.gd" id="4_vwvbj"]
 [ext_resource type="Script" uid="uid://bx0nfqkl6ndly" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="5_2x851"]
 [ext_resource type="Texture2D" uid="uid://dax7we3jie8a0" path="res://resources/sprites/forest/erbozzo.png" id="8_2dk42"]
+[ext_resource type="PackedScene" uid="uid://d3ilhy7rocbqh" path="res://scenes/WorldEntities/Tree.tscn" id="8_e6guk"]
 [ext_resource type="Texture2D" uid="uid://daxptnj3fkhj8" path="res://resources/sprites/forest/water.png" id="9_0p8i0"]
 
 [sub_resource type="Resource" id="Resource_uyug6"]
+resource_name = "2"
 script = ExtResource("4_pwqfv")
 type = 1
 tilemap_layer = 0
 terrain_set = 0
 terrain = 1
-id = ""
+id = "2"
 layer = 0
 
 [sub_resource type="Resource" id="Resource_5m5nq"]
@@ -31,13 +33,38 @@ affected_layers = Array[int]([0])
 strict_filters = true
 filters = Array[ExtResource("3_o5up4")]([])
 
+[sub_resource type="Resource" id="Resource_flold"]
+resource_name = "0"
+script = ExtResource("4_pwqfv")
+type = 1
+tilemap_layer = 0
+terrain_set = 0
+terrain = 2
+id = "0"
+layer = 5
+metadata/_custom_type_script = "uid://e2sapdnqv1la"
+
+[sub_resource type="Resource" id="Resource_lqcnm"]
+script = ExtResource("4_vwvbj")
+tile = SubResource("Resource_flold")
+expand_left = 1
+expand_top = 1
+expand_right = 1
+expand_bottom = 1
+enabled = true
+affected_layers = Array[int]([0])
+strict_filters = true
+filters = Array[ExtResource("3_o5up4")]([])
+metadata/_custom_type_script = "uid://cm8ijg6dx6sgv"
+
 [sub_resource type="Resource" id="Resource_64yua"]
+resource_name = "1"
 script = ExtResource("4_pwqfv")
 type = 1
 tilemap_layer = 0
 terrain_set = 0
 terrain = 0
-id = ""
+id = "1"
 layer = 0
 
 [sub_resource type="Resource" id="Resource_163nu"]
@@ -45,9 +72,9 @@ resource_name = "Settings"
 script = ExtResource("3_m8pa4")
 tile = SubResource("Resource_64yua")
 fullness_check = 1
-fullness_percentage = 1.0
+fullness_percentage = 0.6
 constrain_world_size = true
-world_size = Vector2i(150, 30)
+world_size = Vector2i(300, 300)
 max_walkers = 5
 new_dir_chance = 0.5
 new_walker_chance = 0.05
@@ -56,7 +83,10 @@ room_chances = {
 Vector2i(2, 2): 0.5,
 Vector2i(3, 3): 0.1
 }
-modifiers = Array[ExtResource("2_47u0l")]([SubResource("Resource_5m5nq")])
+modifiers = Array[ExtResource("2_47u0l")]([SubResource("Resource_5m5nq"), SubResource("Resource_lqcnm")])
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gigk1"]
+scenes/1/scene = ExtResource("8_e6guk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6msg3"]
 texture = ExtResource("8_2dk42")
@@ -75,8 +105,13 @@ texture = ExtResource("9_0p8i0")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 1
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_goiwi"]
+tile_shape = 1
+tile_layout = 1
+tile_offset_axis = 1
+physics_layer_0/collision_layer = 2
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -84,6 +119,7 @@ terrain_set_0/terrain_1/name = "River"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/6 = SubResource("TileSetAtlasSource_6msg3")
 sources/7 = SubResource("TileSetAtlasSource_lxq6f")
+sources/0 = SubResource("TileSetScenesCollectionSource_gigk1")
 
 [node name="RandomGenerator" type="Node2D"]
 
