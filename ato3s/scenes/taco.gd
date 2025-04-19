@@ -9,8 +9,10 @@ var input = Vector2.ZERO
 @onready var sprite_stack = $SpriteStack
 @onready var collision = $CollisionShape2D
 @onready var steps_on_snow = $steps_on_snow
+@onready var area = $Area2D
 
 func _ready():
+	z_index = 1
 	GameManager.taco = self
 	set_motion_mode(1)
 	set_max_slides(0)
@@ -26,6 +28,13 @@ func _physics_process(delta): # runs each frame
 		GameManager.player_moving = true
 	else:
 		GameManager.player_moving = false
+	if area.has_overlapping_areas():
+		#print("true")
+		for ar in area.get_overlapping_areas():
+			#print(area.get_overlapping_areas())
+			return
+			#ar.get_parent().modulate = Color(1,1,1,0.5)
+		
 
 func get_user_input():
 	input = Vector2.ZERO # initialize input on each frame

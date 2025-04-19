@@ -17,7 +17,7 @@ func _physics_process(delta):
 func handle_camera_rotation(delta):
 	var rotation_input = 0.0
 	
-	# Calcola l'input
+	# Calcola l'inputs
 	if Input.is_action_pressed("cam_right"):
 		rotation_input += 1
 	if Input.is_action_pressed("cam_left"):

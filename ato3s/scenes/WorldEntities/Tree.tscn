@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3ilhy7rocbqh"]
+[gd_scene load_steps=6 format=3 uid="uid://d3ilhy7rocbqh"]
 
 [ext_resource type="Script" uid="uid://crp6gaa7d71k4" path="res://Scripts/Forest/tree.gd" id="1_fs3up"]
 [ext_resource type="PackedScene" uid="uid://bydmrgsympr0x" path="res://scenes/sprite_stack.tscn" id="1_ngiec"]
@@ -6,7 +6,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bvdid"]
 
-[node name="Tree" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcypm"]
+radius = 25.7937
+
+[node name="Tree" type="CharacterBody2D" groups=["foreground"]]
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_fs3up")
@@ -18,3 +21,11 @@ hframes = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.39398
 shape = SubResource("CircleShape2D_bvdid")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.25, -22.75)
+shape = SubResource("CircleShape2D_hcypm")

@@ -57,4 +57,5 @@ func render_sprites():
 		next_sprite.hframes = hframes
 		next_sprite.frame = i
 		next_sprite.position.y = -i
+		next_sprite.z_index = i
 		add_child(next_sprite)

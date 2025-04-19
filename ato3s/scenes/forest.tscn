@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ne8txwgr6kii"]
+[gd_scene load_steps=6 format=3 uid="uid://ne8txwgr6kii"]
 
 [ext_resource type="Script" uid="uid://dkn26vgnprm3g" path="res://Scripts/Forest/forest.gd" id="1_ym2cq"]
 [ext_resource type="PackedScene" uid="uid://ctouav4o770o5" path="res://scenes/Characters/Taco.tscn" id="2_k1pgn"]
-[ext_resource type="PackedScene" uid="uid://cgysniw2qw14x" path="res://scenes/Characters/Devil_eye.tscn" id="3_j83u4"]
-[ext_resource type="PackedScene" uid="uid://d3ilhy7rocbqh" path="res://scenes/WorldEntities/Tree.tscn" id="4_qore4"]
 [ext_resource type="Script" uid="uid://ov2jqxjcpo2m" path="res://scenes/camera_2d.gd" id="5_xr56k"]
 
 [sub_resource type="Curve" id="Curve_ll83n"]
@@ -31,13 +29,9 @@ script = ExtResource("5_xr56k")
 
 [node name="MapEntities" type="Node2D" parent="."]
 
-[node name="Devil_Eye" parent="MapEntities" instance=ExtResource("3_j83u4")]
-
-[node name="Tree" parent="MapEntities" instance=ExtResource("4_qore4")]
-
 [node name="Snow_Particles" type="CPUParticles2D" parent="."]
-visible = false
 position = Vector2(160, 90)
+emitting = false
 amount = 1000
 randomness = 0.3
 lifetime_randomness = 0.21
