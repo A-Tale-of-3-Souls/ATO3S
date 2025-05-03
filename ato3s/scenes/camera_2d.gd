@@ -2,7 +2,7 @@ extends Camera2D
 # camera variables
 var cam_velocity = Vector2.ZERO
 var cam_accelerat = 1
-var rotation_speed = 10  # Velocità di rotazione desiderata (radians/second)
+var rotation_speed = 3  # Velocità di rotazione desiderata (radians/second)
 var current_rotation_speed = 0.0  # Velocità attuale interpolata
 var rotation_smoothness = 10.0  # Fattore di smoothing
 

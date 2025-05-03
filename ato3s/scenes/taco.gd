@@ -26,8 +26,10 @@ func _physics_process(delta): # runs each frame
 	rotate_stack(input)
 	if input != Vector2.ZERO: # if user is moving
 		GameManager.player_moving = true
+		steps_on_snow.emitting = true
 	else:
 		GameManager.player_moving = false
+		steps_on_snow.emitting = false
 	if area.has_overlapping_areas():
 		#print("true")
 		for ar in area.get_overlapping_areas():
@@ -49,7 +51,6 @@ func update_velocity(input, delta):
 
 func rotate_stack(input):
 	if input != Vector2.ZERO: # if user is moving
-		steps_on_snow.emitting = true
 		sprite_stack._set_rotation(velocity.angle()) # rotate stack based on velocity angle
 		#$SpriteStack.rotation = velocity.angle()
 		#if GameManager.camera_rotating == false: 

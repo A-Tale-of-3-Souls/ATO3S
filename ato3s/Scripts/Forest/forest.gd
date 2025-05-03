@@ -1,5 +1,6 @@
 extends Node2D
 
+
 # Configurazione elementi e percorsi scene
 var entity_scenes = {
 	"Devil_Eye": preload("res://scenes/Characters/Devil_eye.tscn"),
@@ -12,7 +13,7 @@ var spawn_density = {
 	"Devil_Eye": 5,
 	"Tree": 15,
 }
-
+#@onready var entity_spawner = "res://Scripts/Global/entity_spawner.gd"
 @onready var map_entities = $MapEntities
 
 func _ready():

@@ -19,11 +19,12 @@ texture = ExtResource("2_fvs0s")
 hframes = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.462745)
 rotation = 1.39398
 shape = SubResource("CircleShape2D_bvdid")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
