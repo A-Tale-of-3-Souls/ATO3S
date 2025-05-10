@@ -8,7 +8,7 @@ var rotation_smoothness = 10.0  # Fattore di smoothing
 
 @onready var player = get_parent().get_parent()
 @onready var map_entities = $"../../../MapEntities"
-@onready var generators = $"../../../Generators"
+@onready var terrain = $"../../../TileMapLayer"
 
 # Usiamo _physics_process per un movimento più fluido
 func _physics_process(delta):
@@ -49,6 +49,7 @@ func rotate_player(rotation_value, fix_rotation):
 	rotate_sprite_stacks(taco_stack, rotation_value)
 
 func rotate_world(rotation_value, fix_rotation):
+	terrain.rotation += rotation_value
 	map_entities.rotation += rotation_value
 	for child in map_entities.get_children():
 		if child.get_children():

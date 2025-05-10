@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/Global/GameManager.gd"
 SaveManager="*res://Scripts/Global/SaveManager.gd"
 WindowManager="*res://Scripts/Global/WindowManager.gd"
+EntityGenerator="*res://Scripts/Global/Entity_Generator.gd"
 
 [display]
 
@@ -119,4 +120,3 @@ common/physics_interpolation=true
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.329, 0.7, 0.49595, 1)
